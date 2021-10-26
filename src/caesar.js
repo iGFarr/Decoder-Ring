@@ -1,13 +1,41 @@
-// Please refrain from tampering with the setup code provided here,
-// as the index.html and test files rely on this setup to work properly.
-// Only add code (e.g., helper methods, variables, etc.) within the scope
-// of the anonymous function on line 6
-
 const caesarModule = (function () {
-  // you can add any code you want within this function scope
 
   function caesar(input, shift, encode = true) {
-    // your solution code here
+    if(!shift || shift === 0 || shift < -25 || shift > 25){
+      return false;
+    }
+    
+    if(encode === false){
+      shift = shift * (-1);
+    }
+
+    let inputArray = [...input.toLowerCase()];
+  
+    const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
+    "r","s","t","u","v","w","x","y","z"];
+    let result = [];
+
+    inputArray.forEach((letter) => {
+
+      for(let i = 0; i < alphabet.length; i++){
+        if(letter === alphabet[i]){
+          if((i+shift) >= 0 && (i+shift) <= 25){
+          result.push(alphabet[i+shift])
+          }
+          else if((i+shift) < 0){
+            result.push(alphabet[i+shift+26]);
+          }
+          else if((i+shift) > 25){
+            result.push(alphabet[i+shift-26]);
+          }
+        }
+      }
+      if(!alphabet.includes(letter)){
+        result.push(letter);
+      }
+    })
+    
+    return result.join("");
   }
 
   return {
