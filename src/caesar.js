@@ -19,14 +19,15 @@ const caesarModule = (function () {
 
       for(let i = 0; i < alphabet.length; i++){
         if(letter === alphabet[i]){
-          if((i+shift) >= 0 && (i+shift) <= 25){
-          result.push(alphabet[i+shift])
+          let newIndex = shift + i;
+          if((newIndex) >= 0 && (newIndex) <= 25){
+          result.push(alphabet[newIndex])
           }
-          else if((i+shift) < 0){
-            result.push(alphabet[i+shift+26]);
+          else if((newIndex) < 0){
+            result.push(alphabet[newIndex+26]);
           }
-          else if((i+shift) > 25){
-            result.push(alphabet[i+shift-26]);
+          else if((newIndex) > 25){
+            result.push(alphabet[newIndex-26]);
           }
         }
       }
