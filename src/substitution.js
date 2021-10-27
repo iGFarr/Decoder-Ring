@@ -4,11 +4,32 @@
 // of the anonymous function on line 6
 
 const substitutionModule = (function () {
-  // you can add any code you want within this function scope
 
   function substitution(input, alphabet, encode = true) {
-    // your solution code here
+    if(!alphabet || alphabet.length !== 26){
+      return false;
+    }
+
+    for(let i = 0; i < alphabet.length - 1; i++){
+      for(let j = i + 1; j < alphabet.length; j++){
+        if(alphabet[i] === alphabet[j]){
+          return false;
+        }
+      }
+    }
   }
+
+
+console.log(substitution("thinkful", "xoyqmcgrukswaflnthdjpzibev")); //> 'jrufscpw'
+console.log(substitution("You are an excellent spy", "xoyqmcgrukswaflnthdjpzibev")); //> 'elp xhm xf mbymwwmfj dne'
+console.log(substitution("jrufscpw", "xoyqmcgrukswaflnthdjpzibev", false)); //> 'thinkful'
+
+console.log(substitution("message", "$wae&zrdxtfcygvuhbijnokmpl")); //> "y&ii$r&"
+console.log(substitution("y&ii$r&", "$wae&zrdxtfcygvuhbijnokmpl", false)); //> "message"
+
+console.log(substitution("thinkful", "short")); //> false
+console.log(substitution("thinkful", "abcabcabcabcabcabcabcabcyz")); //> false
+console.log(substitution("message")); // false
 
   return {
     substitution,

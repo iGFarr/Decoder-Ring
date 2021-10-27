@@ -9,7 +9,7 @@ const polybiusModule = (function () {
       return null;
     }
 
-    if(spacesRemoved.length % 2 === 0 && spacesRemoved.every((char) => numbers.includes(char))){
+    else if(spacesRemoved.length % 2 === 0 && spacesRemoved.every((char) => numbers.includes(char))){
       return true;
     }
 
@@ -67,12 +67,7 @@ const polybiusModule = (function () {
      })
      return result.join("");
   }
-
-  console.log(polybius("Hello World")); // 3251131343 2543241341
-  console.log(polybius("3251131343 2543241341", false)); //> "hello world"
-  console.log(polybius("4432423352125413", false)); //> "th(i/j)nkful)
-  console.log(polybius("4432423352125413", false));
-  console.log(polybius("44324233521254134", false)); //> false)
+  
   return {
     polybius,
   };
