@@ -38,7 +38,7 @@ const caesarModule = (function () {
     
     return result.join("");
   }
-  console.log(caesar("Zelda", 3))
+  
   return {
     caesar,
   };

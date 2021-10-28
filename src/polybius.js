@@ -67,7 +67,7 @@ const polybiusModule = (function () {
      })
      return result.join("");
   }
-  
+  console.log(polybius("Will this work? Hopefully."))
   return {
     polybius,
   };

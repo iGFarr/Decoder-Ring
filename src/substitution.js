@@ -48,7 +48,6 @@ const substitutionModule = (function () {
   }
 
 
-
   return {
     substitution,
   };
